@@ -50,7 +50,16 @@ func printList(head *Node) error {
 	return nil
 }
 
-func (n *Node) removeNode() error {
+func removeFirst(head *Node) error {
+
+	if head == nil {
+		return nil
+	} else if head.Next != nil {
+		*head = *head.Next
+	} else {
+		*head = Node{}
+	}
+
 	return nil
 }
 
@@ -60,5 +69,11 @@ func main() {
 	insertLast("Luiz", &head)
 	insertLast("Pereira", &head)
 	insertLast("Nunes", &head)
+	printList(&head)
+
+	removeFirst(&head)
+	removeFirst(&head)
+	removeFirst(&head)
+	removeFirst(&head)
 	printList(&head)
 }
