@@ -1,38 +1,51 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 type Node struct {
 	Value string
 	Next  *Node
 }
 
-func addNode(value string, node *Node) error {
+func insertFirst(value string, head *Node) {
 
-	if node == nil {
-		return nil
-	} else if node.Next != nil {
-		addNode(value, node.Next)
+	if head.Value == "" && head.Next == nil {
+		head.Value = value
 	} else {
+		next := *head
+		*head = Node{
+			Value: value,
+			Next:  &next,
+		}
+	}
+}
+
+func insertLast(value string, head *Node) {
+
+	if head.Value == "" && head.Next == nil {
+		head.Value = value
+	} else {
+		node := head
+		for node.Next != nil {
+			node = node.Next
+		}
 		node.Next = &Node{
 			Value: value,
 			Next:  nil,
 		}
 	}
-
-	return nil
 }
 
-func printList(node *Node) error {
+func printList(head *Node) error {
 
-	if node == nil {
+	if head == nil {
 		return nil
-	} else if node.Next != nil {
-		printList(node.Next)
 	}
-	fmt.Println(node.Value)
+	currentNode := head
+	for currentNode != nil {
+		fmt.Println(currentNode.Value)
+		currentNode = currentNode.Next
+	}
 
 	return nil
 }
@@ -42,11 +55,10 @@ func (n *Node) removeNode() error {
 }
 
 func main() {
-
-	rootNode := Node{}
-	addNode("Thiago", &rootNode)
-	addNode("Luiz", &rootNode)
-	addNode("Pereira", &rootNode)
-	addNode("Nunes", &rootNode)
-	printList(&rootNode)
+	var head Node
+	insertLast("Thiago", &head)
+	insertLast("Luiz", &head)
+	insertLast("Pereira", &head)
+	insertLast("Nunes", &head)
+	printList(&head)
 }
