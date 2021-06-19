@@ -1,4 +1,4 @@
-package main
+package list
 
 import "fmt"
 
@@ -7,7 +7,7 @@ type Node struct {
 	Next  *Node
 }
 
-func insertFirst(value string, head *Node) {
+func InsertFirst(value string, head *Node) {
 
 	if head.Value == "" && head.Next == nil {
 		head.Value = value
@@ -20,7 +20,7 @@ func insertFirst(value string, head *Node) {
 	}
 }
 
-func insertLast(value string, head *Node) {
+func InsertLast(value string, head *Node) {
 
 	if head.Value == "" && head.Next == nil {
 		head.Value = value
@@ -36,7 +36,7 @@ func insertLast(value string, head *Node) {
 	}
 }
 
-func printList(head *Node) error {
+func PrintList(head *Node) error {
 
 	if head == nil {
 		return nil
@@ -50,7 +50,7 @@ func printList(head *Node) error {
 	return nil
 }
 
-func removeFirst(head *Node) error {
+func RemoveFirst(head *Node) error {
 
 	if head == nil {
 		return nil
@@ -61,19 +61,4 @@ func removeFirst(head *Node) error {
 	}
 
 	return nil
-}
-
-func main() {
-	var head Node
-	insertLast("Thiago", &head)
-	insertLast("Luiz", &head)
-	insertLast("Pereira", &head)
-	insertLast("Nunes", &head)
-	printList(&head)
-
-	removeFirst(&head)
-	removeFirst(&head)
-	removeFirst(&head)
-	removeFirst(&head)
-	printList(&head)
 }
