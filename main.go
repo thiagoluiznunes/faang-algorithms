@@ -1,7 +1,8 @@
 package main
 
 import (
-	"faang-algorithms/graph"
+	challenges "faang-algorithms/coding-challenges"
+	"fmt"
 )
 
 func main() {
@@ -13,27 +14,50 @@ func main() {
 	// list.RemoveFirst(&head)
 	// list.PrintList(&head)
 
-	var myGraph graph.Graph
-	firstVertex := graph.Vertex{
-		Value: "Thiago Luiz",
-		Edges: nil,
-	}
-	myGraph.InsertVertex(&firstVertex)
+	// var myGraph graph.Graph
+	// vertex1 := graph.Vertex{
+	// 	Value: "1",
+	// 	Edges: nil,
+	// }
 
-	secondVertex := graph.Vertex{
-		Value: "Debora Santos",
-		Edges: nil,
-	}
-	secondVertex.Edges = append(secondVertex.Edges, &firstVertex)
-	myGraph.InsertVertex(&secondVertex)
+	// vertex2 := graph.Vertex{
+	// 	Value: "2",
+	// 	Edges: nil,
+	// }
+	// vertex2.Edges = append(vertex2.Edges, &vertex1)
 
-	thirdVertex := graph.Vertex{
-		Value: "Marta Santos",
-		Edges: nil,
-	}
-	thirdVertex.Edges = append(thirdVertex.Edges, &firstVertex)
-	thirdVertex.Edges = append(thirdVertex.Edges, &secondVertex)
-	myGraph.InsertVertex(&thirdVertex)
+	// vertex3 := graph.Vertex{
+	// 	Value: "3",
+	// 	Edges: nil,
+	// }
+	// vertex3.Edges = append(vertex3.Edges, &vertex1)
+	// vertex3.Edges = append(vertex3.Edges, &vertex2)
 
-	myGraph.PrintGraph()
+	// vertex4 := graph.Vertex{
+	// 	Value: "4",
+	// 	Edges: nil,
+	// }
+	// vertex4.Edges = append(vertex4.Edges, &vertex1)
+
+	// vertex5 := graph.Vertex{
+	// 	Value: "5",
+	// 	Edges: nil,
+	// }
+	// vertex5.Edges = append(vertex5.Edges, &vertex1)
+	// vertex5.Edges = append(vertex5.Edges, &vertex2)
+	// vertex5.Edges = append(vertex5.Edges, &vertex3)
+
+	// myGraph.InsertVertex(&vertex1)
+	// myGraph.InsertVertex(&vertex2)
+	// myGraph.InsertVertex(&vertex3)
+	// myGraph.InsertVertex(&vertex4)
+	// myGraph.InsertVertex(&vertex5)
+	// myGraph.PrintGraph()
+
+	// myGraph.BreadthFirstSearch(&vertex1)
+
+	arr := []int{6, 2, 1, 9, 0}
+	swaps, arr := challenges.SelectionSort(arr)
+	fmt.Println("Array sorted: ", arr)
+	fmt.Println("Swaps: ", swaps)
 }
